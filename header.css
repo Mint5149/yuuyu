@@ -682,7 +682,7 @@ display: none;
 }
 
 .mobile-menu-content {
-    padding: 20px;
+     padding: 20px 10px;
     flex-grow: 1;
 }
 
@@ -721,7 +721,7 @@ display: none;
 .mobile-user-section .user-avatar {
     margin-right: 15px;
     background-color: #f0f0f0;
-    color: #888;
+    color: #767676;
 }
 
 .mobile-user-section .user-greeting p {
@@ -749,7 +749,6 @@ display: none;
 .mobile-menu-group-box {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
     margin-bottom: 18px;
     padding: 12px 16px;
 }
@@ -770,10 +769,7 @@ display: none;
     pointer-events: none;
 }
 
-.mobile-accordion-panel {
-    display: none;
-    padding: 10px 0 0 0;
-}
+
 .mobile-accordion-panel.active {
     display: block;
 }
@@ -786,8 +782,8 @@ display: none;
 
 /* === Mobile Menu Accordion Styles === */
 .mobile-accordion-panel {
-    display: none; /* ซ่อนเมนูไว้ก่อน */
-    background: #f8f9fa;
+    display: none; 
+    background: #ffffff; /* << แก้ไขเป็นสีขาว */
     border-radius: 12px;
     margin-top: 12px;
     padding: 10px 0 0 0;
@@ -798,56 +794,57 @@ display: none;
 }
 
 .accordion-content {
-    padding: 16px;
+    padding: 8px 16px 16px 16px; /* ลด padding ด้านบนเหลือ 8px */
 }
-
 /* Product Grid สำหรับ Mobile Accordion */
 .mobile-product-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
     gap: 8px;
-    /* margin-bottom: 16px; ถูกลบออกแล้ว */
-    overflow-x: auto;
     padding-bottom: 4px;
-    flex: 1; /* ทำให้ตารางสินค้าขยายเต็มพื้นที่ที่เหลือ */
+    overflow-x: scroll; /* <--- ตัวนี้สำคัญมาก ทำให้เลื่อนได้ */
+
+    /* --- โค้ดสำหรับซ่อน Scrollbar --- */
+    -ms-overflow-style: none;  /* สำหรับ IE และ Edge */
+    scrollbar-width: none;     /* สำหรับ Firefox */
+}
+
+.mobile-product-grid::-webkit-scrollbar {
+    display: none;  /* สำหรับ Chrome, Safari และอื่นๆ */
 }
 
 .mobile-product-item {
    background: white;
-    border-radius: 8px; /* ลดความโค้งมน */
-    padding: 8px; /* ลดพื้นที่ภายใน */
+    
+    padding: 16px 12px; /* แก้ไขเป็น บน-ล่าง 16px, ซ้าย-ขวา 12px */
     text-align: center;
     text-decoration: none;
-    color: #333;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-    min-width: 85px; /* กำหนดความกว้างขั้นต่ำ */
+    color: #ffffff;
+  
+   
+    min-width: 100px; /* กำหนดความกว้างขั้นต่ำ */
     flex-shrink: 0; /* ป้องกันการย่อ */
 }
 
-.mobile-product-item:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
+
 
 .mobile-product-image {
-     width: 45px; /* ลดขนาดรูปภาพ */
-    height: 45px;
+     width: 70px; /* เพิ่มขนาด */
+    height: 70px; /* เพิ่มขนาด */
     object-fit: contain;
-    margin: 0 auto 6px auto;
+    margin: 0 auto 8px auto; /* เพิ่มระยะห่างข้างล่างเล็กน้อย */
     display: block;
 }
 
 .mobile-product-name {
-   font-size: 11px; /* ลดขนาดฟอนต์ */
+   font-size: 12px; /* ลดขนาดฟอนต์ */
     font-weight: 500;
-    color: #333;
+    color: #000000;
     margin: 0;
     line-height: 1.2;
 }
 
 .mobile-product-tag {
-     font-size: 9px; /* ลดขนาดฟอนต์ */
+     font-size: 10px; /* ลดขนาดฟอนต์ */
     color: #27ae60;
     font-weight: 400;
     margin-top: 2px;
@@ -960,8 +957,7 @@ display: none;
 .series-menu {
     display: flex;
     justify-content: space-between;
-    flex-basis: 210px; /* << กำหนดความกว้างเริ่มต้น */
-    flex-shrink: 0; /* << ป้องกันการหดตัว */
+    width: 100%; /* << เปลี่ยนมาใช้ค่านี้ */
     align-items: flex-start;
 }
 
@@ -970,21 +966,21 @@ display: none;
     flex-direction: column;
     gap: 12px;
     align-items: flex-start;
-    min-width: 200px;
+    width: 100%; /* << แก้ไขเป็นค่านี้ */
 }
 
-
- .series-link {
+.series-link {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     text-decoration: none;
-    color: #666;
+    
+    background-color: #ffffff;
     font-size: 13px;
     font-weight: 400;
     padding: 8px 16px;
     border-radius: 8px;
-    width: 850px; /* << ตัวอย่างการเพิ่มความกว้าง */
+    width: 100%; /* << เพิ่มบรรทัดนี้เข้าไป */
     transition: all 0.2s ease;
     background-color: #f8f9fa;
 }
@@ -994,22 +990,16 @@ display: none;
     color: #000;
 }
 
-.series-link i {
-    font-size: 10px;
-    color: #999;
-}
-
-.series-link:hover i {
-    color: #000;
-}
-
 
 /* === โค้ดสำหรับย้ายเมนู Series ไปทางขวา === */
 .accordion-main-content {
     display: flex;
+    flex-direction: column; /* << เพิ่มบรรทัดนี้ */
     align-items: flex-start;
-    gap: 16px; /* เพิ่มช่องว่างระหว่าง 2 คอลัมน์ */
-    margin-bottom: 16px; /* เพิ่มระยะห่างจากปุ่มด้านล่าง */
+    gap: 16px; 
+    margin-bottom: 16px; 
 }
+
+
 
 

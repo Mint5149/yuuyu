@@ -389,27 +389,34 @@
                                     <img src="./styles/piciphone/R.png" alt="iPhone 13" class="mobile-product-image">
                                     <p class="mobile-product-name">iPhone 13</p>
                                 </a>
+                                <a href="#" class="mobile-product-item">
+                                    <img src="./styles/piciphone/R.png" alt="iPhone 13" class="mobile-product-image">
+                                    <p class="mobile-product-name">iPhone 13</p>
+                                </a>
+                                <a href="#" class="mobile-product-item">
+                                    <img src="./styles/piciphone/R.png" alt="iPhone 13" class="mobile-product-image">
+                                    <p class="mobile-product-name">iPhone 13</p>
+                                </a>
                             </div>
-                            <div class="series-menu">
+                           <div class="series-menu">
     <div class="series-group">
         <a href="#" class="series-link">
             <span>MacBook Series</span>
-        </a>
+            <i class="fas fa-chevron-right"></i> </a>
         <a href="#" class="series-link">
             <span>iMac Series</span>
-        </a>
+            <i class="fas fa-chevron-right"></i> </a>
         <a href="#" class="series-link">
             <span>Mac mini Series</span>
-        </a>
+            <i class="fas fa-chevron-right"></i> </a>
         <a href="#" class="series-link">
             <span>Mac Studio Series</span>
-        </a>
+            <i class="fas fa-chevron-right"></i> </a>
     </div>
+</div> <div class="mobile-action-buttons">
+    <a href="#" class="mobile-action-btn secondary">เปรียบเทียบ</a>
+    <a href="#" class="mobile-action-btn primary">ดู iPhone ทั้งหมด</a>
 </div>
-                            <div class="mobile-action-buttons">
-                                <a href="#" class="mobile-action-btn secondary">เปรียบเทียบ</a>
-                                <a href="#" class="mobile-action-btn primary">ดู iPhone ทั้งหมด</a>
-                            </div>
                         </div>
                         </div>
                     </div>
@@ -638,6 +645,7 @@
             const closeMenuIcon = document.getElementById('mobile-menu-close');
             const cartIcon = document.querySelector('.navbar-icons .cart-icon');
             const searchIcon = document.querySelector('.navbar-icons .search-icon');
+            const scrollContainers = document.querySelectorAll('.mobile-product-grid');
 
             // Hamburger fade icons
             if (hamburgerMenuIcon && cartIcon && searchIcon && mobileMenu) {
@@ -767,7 +775,16 @@
                     console.log('Simple link clicked:', this.textContent.trim());
                 });
             });
+             scrollContainers.forEach(container => {
+            container.addEventListener('wheel', (evt) => {
+                // ป้องกันไม่ให้หน้าเว็บเลื่อนขึ้น-ลงตามปกติ
+                evt.preventDefault();
+                // นำค่าการเลื่อนของเมาส์ (แนวตั้ง) ไปใช้กับการเลื่อนแนวนอน
+                container.scrollLeft += evt.deltaY;
+            });
         });
+        });
+       
 
 
 
