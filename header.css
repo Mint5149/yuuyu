@@ -786,21 +786,15 @@ display: none;
 
 /* === Mobile Menu Accordion Styles === */
 .mobile-accordion-panel {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
+    display: none; /* ซ่อนเมนูไว้ก่อน */
     background: #f8f9fa;
     border-radius: 12px;
-    margin-top: 8px;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s ease-in-out,
-                margin-top 0.3s ease-in-out;
+    margin-top: 12px;
+    padding: 10px 0 0 0;
 }
 
 .mobile-accordion-panel.active {
-    max-height: 800px; /* ปรับตามเนื้อหา */
-    opacity: 1;
-    margin-top: 12px;
+    display: block; /* แสดงเมนูเมื่อถูกกด */
 }
 
 .accordion-content {
@@ -890,10 +884,10 @@ display: none;
     font-size: 12px;
 }
 
-/* Action Buttons */
 .mobile-action-buttons {
     display: flex;
     gap: 8px;
+    margin-top: 20px; /* เพิ่มบรรทัดนี้ (ปรับค่า 20px ได้ตามต้องการ) */
 }
 
 .mobile-action-btn {
@@ -979,17 +973,18 @@ display: none;
     min-width: 200px;
 }
 
-.series-link {
+
+ .series-link {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     text-decoration: none;
     color: #666;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     padding: 8px 16px;
     border-radius: 8px;
-    width: 180px;
+    width: 850px; /* << ตัวอย่างการเพิ่มความกว้าง */
     transition: all 0.2s ease;
     background-color: #f8f9fa;
 }
@@ -1008,12 +1003,6 @@ display: none;
     color: #000;
 }
 
-.series-link span {
-    flex-grow: 1;
-    text-align: left;
-    margin-left: 12px; /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
-}
-
 
 /* === โค้ดสำหรับย้ายเมนู Series ไปทางขวา === */
 .accordion-main-content {
@@ -1022,4 +1011,5 @@ display: none;
     gap: 16px; /* เพิ่มช่องว่างระหว่าง 2 คอลัมน์ */
     margin-bottom: 16px; /* เพิ่มระยะห่างจากปุ่มด้านล่าง */
 }
+
 
